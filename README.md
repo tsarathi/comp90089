@@ -1,65 +1,43 @@
-# MIMIC-IV on Google BigQuery: Setup Guide
+# COMP90089-Machine Learning For Health-Group Project
 
-## Table of Contents
-1. [Access MIMIC-IV Dataset on PhysioNet](#access-mimic-iv-dataset-on-physionet)
-2. [Setup Python Virtual Environment](#setup-python-virtual-environment)
-3. [Install Google Cloud SDK](#install-google-cloud-sdk)
-4. [Initialize Google Cloud Account](#initialize-google-cloud-account)
-5. [Run Jupyter Notebook](#run-jupyter-notebook)
+## Table of Repository Contents
+1. [Team Contract]()
+2. [Project Proposal]()
+3. [Cohort Extraction and Exploratory Data Analysis]()
+4. [Data Processing Generic]()
+5. [Machine Learning Modelling]()
+6. [Feature Importance Analysis]()
+7. [Pre-created Dataset of Full Cohort]()
+8. [Environment Setting Requirement]()
 
-### 1. Access MIMIC-IV Dataset on PhysioNet
-To access MIMIC-IV in BigQuery, you need to link your PhysioNet account to Google Cloud and request access to the MIMIC-IV dataset.
+## Project Details
 
-#### Steps:
-- Link your PhysioNet account to your Google Cloud account by following these instructions: [PhysioNet Profile Settings](https://mimic.mit.edu/docs/gettingstarted/cloud/link/).
-- After linking, request access to MIMIC-IV on the PhysioNet project page. It is recommended to select the **BigQuery option**: [MIMIC-IV Access Request](https://mimic.mit.edu/docs/gettingstarted/cloud/request/).
-- Once access is granted, you’ll receive a confirmation email. For detailed instructions on accessing MIMIC-IV in BigQuery, visit: [BigQuery Access Guide](https://mimic.mit.edu/docs/gettingstarted/cloud/bigquery/).
-- Activate Google Cloud’s 90-day free trial, if needed, and access BigQuery here: [BigQuery Console](http://console.cloud.google.com/bigquery).
+### Objective
+This study aims to predict 365-day hospital readmission for ischemic stroke
+patients using machine learning models and to identify key predictive features to inform
+clinical decision-making.
 
-### 2. Setup Python Virtual Environment
-A virtual environment is recommended for isolated package management.
+### Materials and Methods
+We used the MIMIC-IV dataset to build and evaluate three
+ML models: Random Forest, XGBoost, and PCA Clustering. Due to the class imbalance
+in readmission cases, we employed SMOTE oversampling for Random Forest to improve
+performance. Hyperparameters for each model were optimized using grid search with
+cross-validation, and feature importance was analyzed using clustering and permutation
+methods.
 
-1. Install `virtualenv`:
-    ```bash
-    pip install virtualenv
-    ```
-   
-2. Create and activate the virtual environment (named `comp90089` in this case):
-    ```bash
-    virtualenv comp90089
-    source comp90089/bin/activate
-    ```
+### Results
+The models achieved moderate performance, with AUC values of 0.64 for Random Forest and 0.78 for XGBoost, indicating limited discriminative ability. While SMOTE improved class balance, the models still struggled to achieve high predictive accuracy. Clustering analysis identified features such as length of stay, troponin T levels, and maximum systolic BP as influential in predicting readmission. Permutation importance for Random Forest highlighted the complex interplay of features affecting patient outcomes.
 
-3. Install necessary packages within the virtual environment:
-    ```bash
-    comp90089/bin/pip install google-cloud-bigquery jupyter
-    ```
+## Steps to Implement Codes
+* Require access to MIMIC-IV database and finish Bigquery settings via this link:
+* Set the environment and versions according to the [Environment Setting Requirement].
+* Run the code of [Cohort Extraction and Exploratory Data Analysis](), save the full cohort dataset, or use the [Pre-created Dataset of Full Cohort]().
+* Input Dataset file and apply it by running [Machine Learning Modelling](), which contains data processing, modelling, evaluation and analysis.
+* Run [Feature Importance Analysis]().
 
-### 3. Install Google Cloud SDK
-To manage your Google Cloud resources, install the Google Cloud SDK.
+## Conclusion
+Our results have highlighted the complexity involved in modeling clinical data. In addition, our struggles to establish a cohort that is large, complete, and relevant clinically proved deeply challenging. Prior literature on different datasets suggested ML accuracy for stroke readmission obtained only moderate results. Our findings were in line with this.
 
-1. Install Google Cloud SDK:
-    ```bash
-    brew install --cask google-cloud-sdk
-    ```
-2. Initialize the SDK:
-    ```bash
-    gcloud init
-    ```
+**Warm Regards**
 
-### 4. Initialize Google Cloud Account
-After installing the SDK, authenticate with your Google Cloud account to access BigQuery.
-
-1. Run the following to initialize your account:
-    ```bash
-    gcloud auth application-default login
-    ```
-2. Select or create a project and set up billing if prompted.
-
-### 5. Run Jupyter Notebook
-After setting up everything, you can start a Jupyter Notebook to interact with MIMIC-IV data.
-
-1. Start the Jupyter Notebook:
-    ```bash
-    jupyter notebook
-    ```
+Group 17
