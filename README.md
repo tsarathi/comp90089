@@ -1,4 +1,4 @@
-# COMP90089-Machine Learning For Health-Group Project
+# COMP90089-Machine Learning For Health-Group Project-Group17
 
 ## Table of Repository Contents
 1. [Team Contract](ML4Health_TeamContract_17.pdf)
