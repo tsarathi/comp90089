@@ -1,7 +1,7 @@
 # COMP90089-Machine Learning For Health-Group Project
 
 ## Table of Repository Contents
-1. [Team Contract](ML4Heath_TeamContract_17.pdf)
+1. [Team Contract](ML4Health_TeamContract_17.pdf)
 2. [Project Proposal](ML4Health_proposal_Group17.pdf)
 3. [Cohort Extraction and Exploratory Data Analysis](Data_Handling.ipynb)
 4. [Data Processing Generic](Process_Data_Generic.ipynb)
